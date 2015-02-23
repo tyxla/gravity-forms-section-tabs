@@ -6,25 +6,34 @@
  */
 
 final class Gravity_Forms_Section_Tabs {
-    /**
-     * Instance container
+	/**
+	 * Instance container.
 	 *
-	 * @var object
+	 * @static
+	 * @access private
+	 *
+	 * @var Gravity_Forms_Section_Tabs
 	 */
-	static $instance = null;
+	private static $instance = null;
 
-    /**
-     * Private constructor so nobody else can instance it
-     *
-     */
+	/**
+	 * Constructor.
+	 *	
+	 * Private so only the get_instance() can instantiate it.
+	 *
+	 * @access private
+	 */
     private function __construct() {
 
     }
 
 	/**
-	 * Fetch/create the singleton instance
+	 * Retrieve or create the Gravity_Forms_Section_Tabs instance.
 	 *
-	 * @return object $instance
+	 * @static
+	 * @access public
+	 *
+	 * @return Gravity_Forms_Section_Tabs $instance
 	 */
     public static function instance() {
         if (self::$instance === null) {
@@ -35,7 +44,9 @@ final class Gravity_Forms_Section_Tabs {
     }
 
 	/**
-	 * Initializing everything
+	 * Initializing everything.
+	 *
+	 * @access public
 	 *
 	 * @return void
 	 */
@@ -56,7 +67,9 @@ final class Gravity_Forms_Section_Tabs {
 	}
 
 	/**
-	 * Enqueue necessary scripts
+	 * Enqueue necessary scripts.
+	 *
+	 * @access public
 	 *
 	 * @return void
 	 */
@@ -69,7 +82,9 @@ final class Gravity_Forms_Section_Tabs {
 	}
 
 	/**
-	 * Enqueue necessary styles
+	 * Enqueue necessary styles.
+	 *
+	 * @access public
 	 *
 	 * @return void
 	 */
@@ -78,9 +93,11 @@ final class Gravity_Forms_Section_Tabs {
 	}
 
 	/**
-	 * Registering the scripts with Gravity Forms so that they get enqueued when running on no-conflict mode
+	 * Registering the scripts with Gravity Forms so that they get enqueued when running on no-conflict mode.
 	 *
-	 * @return $scripts array of registered scripts
+	 * @access public
+	 *
+	 * @return $scripts Array of registered scripts
 	 */
 	public function register_safe_scripts( $scripts ){
 	    $scripts[] = "gfst_plugin_main_js";
@@ -88,13 +105,29 @@ final class Gravity_Forms_Section_Tabs {
 	}
 
 	/**
-	 * Registering the styles with Gravity Forms so that they get enqueued when running on no-conflict mode
+	 * Registering the styles with Gravity Forms so that they get enqueued when running on no-conflict mode.
 	 *
-	 * @return $styles array of registered styles
+	 * @access public
+	 *
+	 * @return $styles Array of registered styles
 	 */
 	public function register_safe_styles( $styles ){
 	    $styles[] = "gfst_plugin_main_css";
 	    return $styles;
 	}
+
+	/**
+	 * Private __clone() to prevent cloning the singleton instance.
+	 *
+	 * @access private
+	 */
+	private function __clone() {}
+
+	/**
+	 * Private __wakeup() to prevent singleton instance unserialization.
+	 *
+	 * @access private
+	 */
+	private function __wakeup() {}
 
 }
