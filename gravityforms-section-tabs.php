@@ -23,5 +23,3 @@ include_once(GFST_PLUGIN_INCLUDES_DIR . 'class.Gravity-Forms-Section-Tabs.php');
 
 // initializing the plugin
 $gfst = Gravity_Forms_Section_Tabs::instance();
-
-?>
