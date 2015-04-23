@@ -44,6 +44,9 @@ jQuery(function($) {
 			// mark the section tabs of this form as initialized
 			$form.addClass('gravity_forms_section_tabs_initialized');
 
+			// trigger a custom "section tabs initialization completed" event for that form
+			$(document).trigger('gravity_forms_section_tabs_initialized', form_id);
+
 		}
 	}
 
