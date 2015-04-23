@@ -46,6 +46,20 @@ if (class_exists("GFForms")) {
 			);
 		}
 
+		public function scripts() {
+			return array_merge(parent::scripts(), array(
+				array(
+					'handle'  => 'gravity_forms_section_tabs_main',
+					'src'     => $this->get_base_url() . '/js/main.js',
+					'version' => $this->_version,
+					'deps' => array('jquery'),
+					'in_footer' => true,
+					'enqueue' => array(
+						array('field_types' => array('section'))
+					)
+				)
+			));
+		}
 	}
 
 	new GFSectionTabsAddon();
