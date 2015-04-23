@@ -7,19 +7,47 @@
  * Author URI: https://github.com/tyxla
  * License: GPL2
  * Requires at least: 3.8
- * Tested up to: 4.1
+ * Tested up to: 4.2
  */
 
-// main plugin constants
-define('GFST_PLUGIN_NAME', 'Gravity Forms: Section Tabs');
-define('GFST_PLUGIN_VERSION', '1.0');
-define('GFST_PLUGIN_DIRNAME', basename(dirname(__FILE__)));
-define('GFST_PLUGIN_URL', WP_PLUGIN_URL . '/' . GFST_PLUGIN_DIRNAME);
-define('GFST_PLUGIN_DIR', WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . GFST_PLUGIN_DIRNAME);
-define('GFST_PLUGIN_INCLUDES_DIR', GFST_PLUGIN_DIR . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR);
+if (class_exists("GFForms")) {
+    GFForms::include_addon_framework();
 
-// main plugin class
-include_once(GFST_PLUGIN_INCLUDES_DIR . 'class.Gravity-Forms-Section-Tabs.php');
+    class GFSectionTabsAddon extends GFAddOn {
 
-// initializing the plugin
-$gfst = Gravity_Forms_Section_Tabs::instance();
+        protected $_version = "1.0";
+        protected $_min_gravityforms_version = "1.7.9999";
+        protected $_slug = "gravityforms-section-tabs";
+        protected $_path = "gravityforms-section-tabs/gravityforms-section-tabs.php";
+        protected $_full_path = __FILE__;
+        protected $_url = "http://www.gravityforms.com";
+        protected $_title = "Gravity Forms: Section Tabs";
+        protected $_short_title = "Section Tabs";
+
+        public function form_settings_fields($form) {
+            return array(
+                array(
+                    "title"  => "Section Tabs",
+                    "fields" => array(
+                        array(
+                            "label"   => "Enable Section Tabs",
+                            "type"    => "checkbox",
+                            "name"    => "enable_section_tabs",
+                            "tooltip" => "If enabled, will turn each section into a tab, containing all fields below it until the next section.",
+                            "choices" => array(
+                                array(
+                                    "label" => "Enabled",
+                                    "name"  => "enable_section_tabs"
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+
+    }
+
+    new GFSectionTabsAddon();
+
+}
