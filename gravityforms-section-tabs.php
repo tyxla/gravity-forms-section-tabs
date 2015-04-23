@@ -24,6 +24,12 @@ if (class_exists("GFForms")) {
 		protected $_title = "Gravity Forms: Section Tabs";
 		protected $_short_title = "Section Tabs";
 
+		public function __construct() {
+			parent::__construct();
+
+			add_filter('gform_pre_render', array($this, 'gform_pre_render'), 10, 3);
+		}
+
 		public function form_settings_fields($form) {
 			return array(
 				array(
@@ -59,6 +65,17 @@ if (class_exists("GFForms")) {
 					)
 				)
 			));
+		}
+
+		public function gform_pre_render($form, $ajax, $field_values) {
+			$classname = 'gravity_forms_section_tabs_enabled';
+			if (empty($form['cssClass'])) {
+				$form['cssClass'] = $classname;
+			} else {
+				$form['cssClass'] = ' ' . $classname;
+			}
+
+			return $form;
 		}
 	}
 
