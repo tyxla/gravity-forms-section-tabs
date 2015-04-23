@@ -10,11 +10,16 @@
  * Tested up to: 4.2
  */
 
+// GFForms is required to continue
 if (class_exists("GFForms")) {
+
+	// include the Gravity Forms addon framework
 	GFForms::include_addon_framework();
 
+	// main addon class
 	class GFSectionTabsAddon extends GFAddOn {
 
+		// addon settings
 		protected $_version = "1.0";
 		protected $_min_gravityforms_version = "1.7.9999";
 		protected $_slug = "gravityforms-section-tabs";
@@ -24,12 +29,14 @@ if (class_exists("GFForms")) {
 		protected $_title = "Gravity Forms: Section Tabs";
 		protected $_short_title = "Section Tabs";
 
+		// our constructor - hooks addon-specific functionality
 		public function __construct() {
 			parent::__construct();
 
 			add_filter('gform_pre_render', array($this, 'gform_pre_render'), 10, 3);
 		}
 
+		// register the fields within the form settings
 		public function form_settings_fields($form) {
 			return array(
 				array(
@@ -52,6 +59,7 @@ if (class_exists("GFForms")) {
 			);
 		}
 
+		// enqueue styles
 		public function styles() {
 			return array_merge(parent::styles(), array(
 				array(
@@ -65,6 +73,7 @@ if (class_exists("GFForms")) {
 			));
 		}
 
+		// enqueue scripts
 		public function scripts() {
 			return array_merge(parent::scripts(), array(
 				array(
@@ -80,6 +89,7 @@ if (class_exists("GFForms")) {
 			));
 		}
 
+		// add a specific CSS class to forms with section tabs enabled
 		public function gform_pre_render($form, $ajax, $field_values) {
 			$classname = 'gravity_forms_section_tabs_enabled';
 			if (empty($form['cssClass'])) {
@@ -92,6 +102,7 @@ if (class_exists("GFForms")) {
 		}
 	}
 
+	// initialize the addon
 	new GFSectionTabsAddon();
 
 }
