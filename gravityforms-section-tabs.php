@@ -52,6 +52,19 @@ if (class_exists("GFForms")) {
 			);
 		}
 
+		public function styles() {
+			return array_merge(parent::styles(), array(
+				array(
+					'handle'  => 'gravity_forms_section_tabs_main',
+					'src'     => $this->get_base_url() . '/css/main.css',
+					'version' => $this->_version,
+					'enqueue' => array(
+						array('field_types' => array('section'))
+					)
+				)
+			));
+		}
+
 		public function scripts() {
 			return array_merge(parent::scripts(), array(
 				array(
