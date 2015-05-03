@@ -30,7 +30,7 @@ jQuery(function($) {
 			});
 
 			// handle tab head clicks
-			tabsHead.find('a').on('click', function() {
+			tabsHead.find('a').on('click', function(event) {
 				if ($(this).hasClass('current')) {
 					return false;
 				}
@@ -39,6 +39,8 @@ jQuery(function($) {
 				$form.find('.gsection:eq(' + idx + ')').show().siblings('.gsection').hide();
 				tabsHead.find('a.current').removeClass('current');
 				$(this).addClass('current');
+
+				event.preventDefault();
 			}).filter(':eq(0)').trigger('click');
 
 			// mark the section tabs of this form as initialized
