@@ -33,7 +33,7 @@ if (class_exists("GFForms")) {
 		public function __construct() {
 			parent::__construct();
 
-			// add оур CSS class to forms with section tabs enabled
+			// add our CSS class to forms with section tabs enabled
 			add_filter('gform_pre_render', array($this, 'gform_pre_render'), 10, 3);
 		}
 
