@@ -18,8 +18,11 @@ jQuery(function($) {
 			var tabsHead = $('<li class="gravity-forms-section-tabs-head"></li>');
 			tabsHead.insertBefore(tabs.eq(0));
 
+			// here we'll save the first tab with errors
+			var firstTabWithErrors = -1;
+
 			// build tabs
-			tabs.each(function() {
+			tabs.each(function(tabIndex) {
 				// add a tab head link for each tab
 				tabsHead.append('<a href="#">' + $(this).find('.gsection_title').html() + '</a>');
 
@@ -27,7 +30,17 @@ jQuery(function($) {
 				var gformFields = $('<ul class="gform_fields">');
 				$(this).append(gformFields);
 				$(this).nextUntil('.gsection', '.gfield').appendTo(gformFields);
+
+				// if this tab is the first with errors, save it
+				if ($(this).find('.gfield_error').length && firstTabWithErrors === -1) {
+					firstTabWithErrors = tabIndex;
+				}
 			});
+
+			// falling back to first tab if no tab with errors
+			if (firstTabWithErrors < 0) {
+				firstTabWithErrors = 0;
+			}
 
 			// handle tab head clicks
 			tabsHead.find('a').on('click', function(event) {
@@ -41,7 +54,7 @@ jQuery(function($) {
 				$(this).addClass('current');
 
 				event.preventDefault();
-			}).filter(':eq(0)').trigger('click');
+			}).filter(':eq(' + firstTabWithErrors + ')').trigger('click');
 
 			// mark the section tabs of this form as initialized
 			$form.addClass('gravity_forms_section_tabs_initialized');
