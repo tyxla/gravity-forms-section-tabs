@@ -1,7 +1,7 @@
-.gform_wrapper .gfield + .gravity-forms-section-tabs-head { margin-top: 1.8em; }
-.gform_wrapper .gravity-forms-section-tabs-head a { display: inline-block; border: 1px solid #ccc; text-decoration: none; padding: 5px 10px; font-weight: bold; }
-.gform_wrapper .gravity-forms-section-tabs-head a + a { margin-left: -1px; position: relative; }
-.gform_wrapper .gravity-forms-section-tabs-head a.current { background: #eee; }
-.gform_wrapper .gsection,
-.gform_wrapper .gsection .gsection_title { display: none; }
-.gform_wrapper .gsection { border-bottom: 0; }
+.gravity_forms_section_tabs_enabled_wrapper .gfield + .gravity-forms-section-tabs-head { margin-top: 1.8em; }
+.gravity_forms_section_tabs_enabled_wrapper .gravity-forms-section-tabs-head a { display: inline-block; border: 1px solid #ccc; text-decoration: none; padding: 5px 10px; font-weight: bold; }
+.gravity_forms_section_tabs_enabled_wrapper .gravity-forms-section-tabs-head a + a { margin-left: -1px; position: relative; }
+.gravity_forms_section_tabs_enabled_wrapper .gravity-forms-section-tabs-head a.current { background: #eee; }
+.gravity_forms_section_tabs_enabled_wrapper .gsection,
+.gravity_forms_section_tabs_enabled_wrapper .gsection .gsection_title { display: none; }
+.gravity_forms_section_tabs_enabled_wrapper .gsection { border-bottom: 0; }
