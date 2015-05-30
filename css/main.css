@@ -3,4 +3,6 @@
 .gform_wrapper .gravity-forms-section-tabs-head a { display: inline-block; border: 1px solid #ccc; text-decoration: none; padding: 5px 10px; }
 .gform_wrapper .gravity-forms-section-tabs-head a + a { margin-left: -1px; position: relative; }
 .gform_wrapper .gravity-forms-section-tabs-head a.current { background: #eee; }
-.gform_wrapper .gsection { display: none; }
+.gform_wrapper .gsection,
+.gform_wrapper .gsection .gsection_title { display: none; }
+.gform_wrapper .gsection { border-bottom: 0; }
