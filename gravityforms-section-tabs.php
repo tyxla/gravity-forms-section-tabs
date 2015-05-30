@@ -25,7 +25,7 @@ if (class_exists("GFForms")) {
 		protected $_slug = "gravityforms-section-tabs";
 		protected $_path = "gravityforms-section-tabs/gravityforms-section-tabs.php";
 		protected $_full_path = __FILE__;
-		protected $_url = "http://www.gravityforms.com";
+		protected $_url = "https://github.com/tyxla/gravity-forms-section-tabs";
 		protected $_title = "Gravity Forms: Section Tabs";
 		protected $_short_title = "Section Tabs";
 
@@ -33,6 +33,7 @@ if (class_exists("GFForms")) {
 		public function __construct() {
 			parent::__construct();
 
+			// add оур CSS class to forms with section tabs enabled
 			add_filter('gform_pre_render', array($this, 'gform_pre_render'), 10, 3);
 		}
 
