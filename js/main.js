@@ -23,16 +23,18 @@ jQuery(function($) {
 
 			// build tabs
 			tabs.each(function(tabIndex) {
+				var $this = $(this);
+
 				// add a tab head link for each tab
-				tabsHead.append('<a href="#">' + $(this).find('.gsection_title').html() + '</a>');
+				tabsHead.append('<a href="#">' + $this.find('.gsection_title').html() + '</a>');
 
 				// move the corresponding fields to their tab body
 				var gformFields = $('<ul class="gform_fields">');
-				$(this).append(gformFields);
-				$(this).nextUntil('.gsection', '.gfield').appendTo(gformFields);
+				$this.append(gformFields);
+				$this.nextUntil('.gsection', '.gfield').appendTo(gformFields);
 
 				// if this tab is the first with errors, save it
-				if ($(this).find('.gfield_error').length && firstTabWithErrors === -1) {
+				if ($this.find('.gfield_error').length && firstTabWithErrors === -1) {
 					firstTabWithErrors = tabIndex;
 				}
 			});
@@ -44,14 +46,16 @@ jQuery(function($) {
 
 			// handle tab head clicks
 			tabsHead.find('a').on('click', function(event) {
-				if ($(this).hasClass('current')) {
+				var $this = $(this);
+
+				if ($this.hasClass('current')) {
 					return false;
 				}
 
-				var idx = tabsHead.find('a').index($(this));
+				var idx = tabsHead.find('a').index($this);
 				$form.find('.gsection:eq(' + idx + ')').show().siblings('.gsection').hide();
 				tabsHead.find('a.current').removeClass('current');
-				$(this).addClass('current');
+				$this.addClass('current');
 
 				event.preventDefault();
 			}).filter(':eq(' + firstTabWithErrors + ')').trigger('click');
