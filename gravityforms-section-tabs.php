@@ -7,7 +7,7 @@
  * Author URI: https://github.com/tyxla
  * License: GPL2
  * Requires at least: 3.8
- * Tested up to: 4.2
+ * Tested up to: 4.2.2
  */
 
 // GFForms is required to continue
