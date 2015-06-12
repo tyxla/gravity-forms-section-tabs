@@ -57,6 +57,7 @@ if (class_exists("GFForms")) {
 				array(
 					"title"  => "Section Tabs",
 					"fields" => array(
+						// whether to enable the Section Tabs for the particular form
 						array(
 							"label"   => "Enable Section Tabs",
 							"type"    => "checkbox",
