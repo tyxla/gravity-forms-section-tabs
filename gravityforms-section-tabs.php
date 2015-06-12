@@ -78,6 +78,7 @@ if (class_exists("GFForms")) {
 		// enqueue styles
 		public function styles() {
 			return array_merge(parent::styles(), array(
+				// main frontend CSS file
 				array(
 					'handle'  => 'gravity_forms_section_tabs_main',
 					'src'     => $this->get_base_url() . '/css/main.css',
@@ -92,6 +93,7 @@ if (class_exists("GFForms")) {
 		// enqueue scripts
 		public function scripts() {
 			return array_merge(parent::scripts(), array(
+				// main frontend JS file
 				array(
 					'handle'  => 'gravity_forms_section_tabs_main',
 					'src'     => $this->get_base_url() . '/js/main.js',
