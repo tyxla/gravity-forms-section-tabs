@@ -10,7 +10,7 @@
  * Tested up to: 4.2.2
  */
 
-// GFForms is required to continue
+// GFForms class is required to continue
 if (class_exists("GFForms")) {
 
 	// include the Gravity Forms addon framework
