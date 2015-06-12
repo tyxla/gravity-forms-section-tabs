@@ -19,14 +19,28 @@ if (class_exists("GFForms")) {
 	// main addon class
 	class GFSectionTabsAddon extends GFAddOn {
 
-		// addon settings
+		// addon version
 		protected $_version = "1.0";
+
+		// minimum Gravity Forms version
 		protected $_min_gravityforms_version = "1.7.9999";
+
+		// addon slug
 		protected $_slug = "gravityforms-section-tabs";
+
+		// addon relative path
 		protected $_path = "gravityforms-section-tabs/gravityforms-section-tabs.php";
+
+		// addon absolute path
 		protected $_full_path = __FILE__;
+
+		// addon URL
 		protected $_url = "https://github.com/tyxla/gravity-forms-section-tabs";
+
+		// addon name
 		protected $_title = "Gravity Forms: Section Tabs";
+
+		// addon short name
 		protected $_short_title = "Section Tabs";
 
 		// our constructor - hooks addon-specific functionality
