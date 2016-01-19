@@ -108,7 +108,7 @@ if (class_exists("GFForms")) {
 		}
 
 		// add a specific CSS class to forms with section tabs enabled
-		public function gform_pre_render($form, $ajax, $field_values) {
+		public function gform_pre_render($form, $ajax, $field_values = array()) {
 			if (!empty($form['gravityforms-section-tabs']['enable_section_tabs'])) {
 				$classname = 'gravity_forms_section_tabs_enabled';
 				if (empty($form['cssClass'])) {
