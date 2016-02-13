@@ -12,16 +12,17 @@
 
 add_action( 'gform_loaded', 'gform_section_tabs_addon_registration', 5 );
 function gform_section_tabs_addon_registration() {
-	// GFForms class is required to continue
-	if (class_exists("GFForms")) {
 
-		// include the Gravity Forms addon framework
-		GFForms::include_addon_framework();
-
-		include_once( dirname( __FILE__ ) . '/class-gf-section-tabs-addon.php' );
-
-		// initialize the addon
-		new GFSectionTabsAddon();
-
+	// verify that addon framework inclusion method exists
+	if ( ! method_exists( 'GFForms', 'include_feed_addon_framework' ) ) {
+		return;
 	}
+
+	// include the Gravity Forms addon framework
+	GFForms::include_addon_framework();
+
+	require_once( dirname( __FILE__ ) . '/class-gf-section-tabs-addon.php' );
+
+	// initialize the addon
+	new GFSectionTabsAddon();
 }
