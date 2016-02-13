@@ -97,7 +97,7 @@ class GFSectionTabsAddon extends GFAddOn {
 			if (empty($form['cssClass'])) {
 				$form['cssClass'] = $classname;
 			} else {
-				$form['cssClass'] = ' ' . $classname;
+				$form['cssClass'] .= ' ' . $classname;
 			}
 		}
 
